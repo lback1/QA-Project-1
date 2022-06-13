@@ -30,8 +30,8 @@ class ManagerOfTheSeason(db.Model):
 
 class PlayersForm(FlaskForm):
     player_name = StringField('Enter the player name', validators=[DataRequired()])
-
-
+    team_id = IntegerField('Team information')
+    manager_id = IntegerField('Manager information')
     shirt_number = IntegerField('Enter the shirt number')
     position = StringField('Enter the position')
     submit = SubmitField('Add')
@@ -41,16 +41,11 @@ class TeamsForm(FlaskForm):
     country = StringField('Enter the country')
     league = StringField('Enter the league')
     trophies_won = IntegerField('Enter the number of trophies won')
-
+    manager_id = IntegerField('Manager information')
     submit = SubmitField('Add')
 
 class ManagersForm(FlaskForm):
     manager_name = StringField('Enter the manager name', validators=[DataRequired()])
-
+    team_id = IntegerField('Team information')
     submit = SubmitField('Add')
-
-
-
-
-    
 

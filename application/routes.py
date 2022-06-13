@@ -5,7 +5,7 @@ from flask import redirect, render_template, request, url_for
 @app.route('/')
 @app.route('/home')
 def home():
-    return 'Welcome to the home page'
+    return render_template('home.html')
 
 @app.route('/add_player', methods=['GET', 'POST'])
 def add_player():
