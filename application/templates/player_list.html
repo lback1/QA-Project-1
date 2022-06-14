@@ -1,9 +1,0 @@
-{% extends 'navBar.html' %}
-
-{% block body %}
-<h2>Player</h2>
-{% for players in all_players %}
-    <br>{{players.id}}  {{players.name}}
-    <br>{{players.team_id}} {{players.content}} <a href="{{ url_for('update_player', id = players.id) }}"><button type="button">Update a Player</button></a><a href="{{ url_for('delete_player', id = players.id) }}"><button type="button">Delete</button></a> </p><br>
-{% endfor %}
-{% endblock %}

@@ -1,14 +1,14 @@
 from application import db
 
-class Player(db.Model):
+class Players(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     player_name = db.Column(db.String(40), nullable=False)
     position = db.Column(db.String(40))
     shirt_number = db.Column(db.Integer)
-    voters = db.relationship('Voter', backref='player')
+    voters = db.relationship('Voters', backref='players')
 
-class Voter(db.Model):
+class Voters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     voter_name = db.Column(db.String(40), nullable=False)
     reason = db.Column(db.String(80))
-    player_id = db.Column(db.Integer, db.ForiegnKey('player.id'))
+    players_id = db.Column(db.Integer, db.ForeignKey('players.id'))
