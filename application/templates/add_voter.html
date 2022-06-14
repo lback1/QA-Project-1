@@ -1,0 +1,12 @@
+{% extends 'navBar.html' %} 
+
+{% block body %}
+<h1>Add a Voter Here</h1>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.voter_name.label }} {{ form.voter_name }}<br>
+    {{ form.reason.label }} {{ form.reason }}<br>
+    {{ form.player_id.label }} {{ form.player_id }}<br>
+    {{ form.submit }} {{ form.voter_id }}
+</form>
+{% endblock body %}

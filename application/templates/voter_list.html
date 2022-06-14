@@ -1,0 +1,9 @@
+{% extends 'navBar.html' %}
+
+{% block body %}
+<h2>Voters</h2>
+{% for voters in all_voters %}
+    <br>{{voters.id}}  {{voter.name}}
+    <br>{{voter.voter_id}} {{voter.reason}} <a href="{{ url_for('update_voter', id = voter.id) }}"><button type="button">Update a Voter</button></a><a href="{{ url_for('delete_player', id = players.id) }}"><button type="button">Delete</button></a> </p><br>
+{% endfor %}
+{% endblock %}

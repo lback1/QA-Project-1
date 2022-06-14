@@ -8,13 +8,13 @@ class Player(db.Model):
     player_name = db.Column(db.String(40), nullable=False)
     position = db.Column(db.String(40))
     shirt_number = db.Column(db.Integer)
-    voters = db.relationship('Voter', backref='playerbr')
+    voters = db.relationship('Voter', backref='player')
 
-class Voter(db.Model):
+class Voters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     voter_name = db.Column(db.String(40), nullable=False)
     reason = db.Column(db.String(80))
-    player_id = db.Column('Player_id', db.Integer, db.ForiegnKey('Player_id'))
+    player_id = db.Column(db.Integer, db.ForiegnKey('player.id'))
 
 class PlayerForm(FlaskForm):
     player_name = StringField('Enter the player name', validators=[DataRequired()])
