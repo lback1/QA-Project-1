@@ -23,7 +23,7 @@ def view_player():
     all_players = Player.query.all()
     return render_template('player_list.html', all_players=all_players)
 
-@app.route('/update_player/<int:id>', methods = ['GET','POST'])
+@app.route('/update_player/<int:id>', methods = ['GET','PUT'])
 def update_player(id):
     all_players = Player.query.all()
     form = PlayerForm()
@@ -40,7 +40,7 @@ def update_player(id):
         return render_template('update_player.html', form=form, id=id)
 
 
-@app.route('/delete_player/<int:id>', methods=['GET', 'POST'])
+@app.route('/delete_player/<int:id>', methods=['GET', 'DELETE'])
 def delete_player(id):
     player = Player.query.filter_by(id=id).first()
     if player:
@@ -67,7 +67,7 @@ def read():
     all_voters = Voter.query.all()
     return render_template('voter_list.html', all_voters=all_voters)
 
-@app.route('/update_voter/<int:id>', methods = ['GET','POST'])
+@app.route('/update_voter/<int:id>', methods = ['GET','PUT'])
 def update_voter(id):
     all_voters = Voter.query.all()
     form = VoterForm()
@@ -84,7 +84,7 @@ def update_voter(id):
         return render_template('update_voter.html', form=form, id=id)
     
 
-@app.route('/delete_voter/<int:id>', methods=['GET', 'POST'])
+@app.route('/delete_voter/<int:id>', methods=['GET', 'DELETE'])
 def delete_voter(id):
     voter = Voter.query.filter_by(id=id).first()
     if voter:
