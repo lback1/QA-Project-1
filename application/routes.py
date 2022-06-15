@@ -8,14 +8,14 @@ from application.models import Players, Voters
 def home():
     return render_template('index.html')
 
-@app.route('/add_player', methods=['GET', 'POST'])
-def add_player():
+@app.route('/add_players', methods=['GET', 'POST'])
+def add_players():
     form = PlayersForm()
     if form.validate_on_submit():
-        new_player = Players(player_name=form.player_name.data, position=form.position.data, shirt_number=form.shirt_number.data)
-        db.session.add(new_player)
+        new_players = Players(players_name=form.players_name.data, position=form.position.data, shirt_number=form.shirt_number.data)
+        db.session.add(new_players)
         db.session.commit()
-        return redirect(url_for('add_player'))
+        return render_template('index.html', message="Player Added!")
     else:
         return render_template('add_players.html', form=form)
 
@@ -24,14 +24,14 @@ def view_players():
     all_players = Players.query.all()
     return render_template('players_list.html', all_players=all_players)
 
-@app.route('/update_players/<int:id>', methods = ['GET','PUT'])
+@app.route('/update_players/<int:id>', methods = ['GET','POST'])
 def update_players(id):
     all_players = Players.query.all()
     form = PlayersForm()
     if request.method == 'POST':
         update_players = Players.query.filter_by(id=id).first()
         if update_players:
-            update_players.players_name = request.form['player_name']
+            update_players.players_name = request.form['players_name']
             update_players.position = request.form['position']
             update_players.shirt_number = request.form['shirt_number']
             db.session.commit()
@@ -41,7 +41,7 @@ def update_players(id):
         return render_template('update_players.html', form=form, id=id)
 
 
-@app.route('/delete_players/<int:id>', methods=['GET', 'DELETE'])
+@app.route('/delete_players/<int:id>', methods=['GET', 'POST'])
 def delete_players(id):
     players = Players.query.filter_by(id=id).first()
     if players:
@@ -56,10 +56,10 @@ def delete_players(id):
 def add_voters():
     form = VotersForm()
     if form.validate_on_submit():
-        new_voters = Voters(votesr_name=form.voters_name.data, reason=form.reason.data, players_id=form.players_id.data)
+        new_voters = Voters(voters_name=form.voters_name.data, reason=form.reason.data, players_id=form.players_id.data)
         db.session.add(new_voters)
         db.session.commit()
-        return redirect(url_for('add_voters'))
+        return render_template('index.html', message="Voter Added!")
     else:
         return render_template('add_voters.html', form=form)
 
@@ -68,16 +68,16 @@ def read():
     all_voters = Voters.query.all()
     return render_template('voters_list.html', all_voters=all_voters)
 
-@app.route('/update_voters/<int:id>', methods = ['GET','PUT'])
+@app.route('/update_voters/<int:id>', methods = ['GET','POST'])
 def update_voters(id):
     all_voters = Voters.query.all()
     form = VotersForm()
     if request.method == 'POST':
         update_voters = Voters.query.filter_by(id=id).first()
         if update_voters:
-            update_voters.voter_name = request.form['voters_name']
+            update_voters.voters_name = request.form['voters_name']
             update_voters.reason = request.form['reason']
-            update_voters.player_id = request.form['players_id']
+            update_voters.players_id = request.form['players_id']
             db.session.commit()
             return render_template('voters_list.html', all_voters=all_voters)
         return f"voter with id = {id} does not exist"
@@ -85,7 +85,7 @@ def update_voters(id):
         return render_template('update_voters.html', form=form, id=id)
     
 
-@app.route('/delete_voters/<int:id>', methods=['GET', 'DELETE'])
+@app.route('/delete_voters/<int:id>', methods=['GET', 'POST'])
 def delete_voters(id):
     voters = Voters.query.filter_by(id=id).first()
     if voters:
