@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+<form action="{{ url_for('update_players', id = id) }}" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.players_id.label }} {{ form.players_id }}
+    {{ form.position.label }} {{ form.position }}
+    {{ form.shirt_number.label }} {{ form.shirt_number }}
+    {{ form.submit }}
+</form>
+{% endblock body %}

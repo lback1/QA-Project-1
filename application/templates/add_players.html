@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+<title>Hammer of the Year - Add Players</title>
+{% endblock %}
+
+{% block content %}
+<h1>Add a Player</h1>
+<br>
+<div class='form'>
+    <form method='POST' action=''>
+    {{ form.hidden_tag() }}
+    {{ form.players_name.label }} {{ form.players_name }}
+    {{ form.position.label }} {{ form.position }}
+    {{ form.shirt_number.label }} {{ form.shirt_number }}
+    {{ form.submit }}
+</form>
+{% endblock body %}

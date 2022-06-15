@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+<title>Voters List</title>
+{% endblock %}
+
+{% block body %}
+<h2> view added voters </h2>
+{% for voters in all_voters %}
+    {{voters.id}} {{voters.voters_name}} {{voters.reason}} {{voters.players.id}} <a href="{{ url_for('update_voters', id = voters.id) }}"><button type="button">Update</button></a><a href="{{ url_for('delete_voters', id = voters.id) }}"><button type="button">Delete</button></a> </p><br>
+{% endfor %}
+{% endblock %}
