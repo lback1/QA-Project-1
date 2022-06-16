@@ -4,9 +4,9 @@
 <title>Players List</title>
 {% endblock %}
 
-{% block body %}
+{% block content %}
 <h2> view added players </h2>
 {% for players in all_players %}
-    {{players.id}} {{players.players_name}} {{players.position}} {{players.shirt_number}} <a href="{{ url_for('update_players', id = players.id) }}"><button type="button">Update</button></a><a href="{{ url_for('delete_players', id = players.id) }}"><button type="button">Delete</button></a> </p><br>
+    {{players.id}} {{players.player_name}} {{players.position}} {{shirt_number}} <a href="{{ url_for('update_players', id = players.id) }}"><button type="button">Update</button></a><a href="{{ url_for('delete_players', id = players.id) }}"><button type="button">Delete</button></a> </p><br>
 {% endfor %}
 {% endblock %}

@@ -5,14 +5,20 @@
 {% endblock %}
 
 {% block content %}
-<h1>Add a Voter</h1>
-<br>
-<div class='form'>
-    <form method='POST' action=''>
-    {{ form.hidden_tag() }}
-    {{ form.voters_name.label }} {{ form.voters_name }}
-    {{ form.reason.label }} {{ form.reason }}
-    {{ form.players_id.label }} {{ form.players_id }}
-    {{ form.submit }}
-</form>
+<body>
+    <h1>Add a Voter</h1>
+    <p>
+        <div class='form'>
+             <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.voters_name.label }} {{ form.voters_name }}
+                <br>
+                {{ form.reason.label }} {{ form.reason }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
 {% endblock %}

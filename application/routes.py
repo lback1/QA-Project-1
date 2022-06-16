@@ -1,3 +1,4 @@
+from email import message
 from application import app, db
 from flask import render_template, redirect, url_for, request
 from application.forms import PlayersForm, VotersForm
@@ -19,26 +20,27 @@ def add_players():
     else:
         return render_template('add_players.html', form=form)
 
-@app.route('/view_players')
-def view_players():
+@app.route('/players_list')
+def players_list():
     all_players = Players.query.all()
     return render_template('players_list.html', all_players=all_players)
 
 @app.route('/update_players/<int:id>', methods = ['GET','POST'])
 def update_players(id):
     all_players = Players.query.all()
+    return render_template('update_players.html', all_players=all_players)
+
+@app.route('/update_one_player/<players_name>', methods = ['GET', 'POST'])
+def update_player(player_name):
     form = PlayersForm()
+    update_one_player = Players.query.filter_by(player_name=player_name).first()
     if request.method == 'POST':
-        update_players = Players.query.filter_by(id=id).first()
-        if update_players:
-            update_players.players_name = request.form['players_name']
-            update_players.position = request.form['position']
-            update_players.shirt_number = request.form['shirt_number']
+        if update_one_player:
+            update_one_player.player_name = form.player_name.data
             db.session.commit()
-            return render_template('players_list.html', all_players=all_players)
-        return f"player with id = {id} does not exist"
+            return redirect(url_for('update', message = "Player updated"))
     else:
-        return render_template('update_players.html', form=form, id=id)
+        return render_template('update_one_player.html', update_one_player=update_one_player, form=form)
 
 
 @app.route('/delete_players/<int:id>', methods=['GET', 'POST'])
@@ -63,8 +65,8 @@ def add_voters():
     else:
         return render_template('add_voters.html', form=form)
 
-@app.route('/view_voters')
-def read():
+@app.route('/voters_list')
+def voters_list():
     all_voters = Voters.query.all()
     return render_template('voters_list.html', all_voters=all_voters)
 

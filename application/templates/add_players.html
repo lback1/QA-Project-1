@@ -5,14 +5,22 @@
 {% endblock %}
 
 {% block content %}
-<h1>Add a Player</h1>
-<br>
-<div class='form'>
-    <form method='POST' action=''>
-    {{ form.hidden_tag() }}
-    {{ form.players_name.label }} {{ form.players_name }}
-    {{ form.position.label }} {{ form.position }}
-    {{ form.shirt_number.label }} {{ form.shirt_number }}
-    {{ form.submit }}
-</form>
+<body>
+    <h1>Add a Player</h1>
+    <p>
+        <div class='form'>
+             <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.players_name.label }} {{ form.players_name }}
+                <br>
+                {{ form.position.label }} {{ form.position }}
+                <br>
+                {{ form.shirt_number.label }} {{ form.shirt_number }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
 {% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'base.html' %} 
 
-{% block body %}
-<form action="{{ url_for('update_players', id = id) }}" method="POST">
-    {{ form.hidden_tag() }}
-    {{ form.players_id.label }} {{ form.players_id }}
-    {{ form.position.label }} {{ form.position }}
-    {{ form.shirt_number.label }} {{ form.shirt_number }}
-    {{ form.submit }}
-</form>
+{% block title %}
+<title>Players</title>
+{% endblock %}
+
+{% block content %}
+<h2> Current players </h2>
+{% for players in all_players %}.
+    {{players.players_name}} <a href="{{ url_for('update_players', players_name = players.players_name) }}"><button type="button">edit</button></a></p><br>
+{% endfor %}
 {% endblock %}
