@@ -25,23 +25,20 @@ def players_list():
     all_players = Players.query.all()
     return render_template('players_list.html', all_players=all_players)
 
-@app.route('/update_players/<int:id>', methods = ['GET','POST'])
+@app.route('/update_players/<int:id>',methods = ['GET','POST'])
 def update_players(id):
-    all_players = Players.query.all()
-    return render_template('update_players.html', all_players=all_players)
-
-@app.route('/update_one_player/<players_name>', methods = ['GET', 'POST'])
-def update_player(player_name):
     form = PlayersForm()
-    update_one_player = Players.query.filter_by(player_name=player_name).first()
     if request.method == 'POST':
-        if update_one_player:
-            update_one_player.player_name = form.player_name.data
+        update_players = Players.query.filter_by(id=id).first()
+        if update_players: 
+            update_players.players_name = request.form['players_name']
+            update_players.position = request.form['position']
+            update_players.shirt_number = request.form['shirt_number']
             db.session.commit()
-            return redirect(url_for('update', message = "Player updated"))
+            return redirect(url_for('players_list'))
+        return f"Players with id = {id} Does not exist"
     else:
-        return render_template('update_one_player.html', update_one_player=update_one_player, form=form)
-
+        return render_template('update_players.html', form=form, id=id)
 
 @app.route('/delete_players/<int:id>', methods=['GET', 'POST'])
 def delete_players(id):
@@ -70,23 +67,20 @@ def voters_list():
     all_voters = Voters.query.all()
     return render_template('voters_list.html', all_voters=all_voters)
 
-@app.route('/update_voters/<int:id>', methods = ['GET','POST'])
+@app.route('/update_voters/<int:id>',methods = ['GET','POST'])
 def update_voters(id):
-    all_voters = Voters.query.all()
     form = VotersForm()
     if request.method == 'POST':
-        update_voters = Voters.query.filter_by(id=id).first()
-        if update_voters:
+        update_voterss = Voters.query.filter_by(id=id).first()
+        if update_voters: 
             update_voters.voters_name = request.form['voters_name']
             update_voters.reason = request.form['reason']
-            update_voters.players_id = request.form['players_id']
             db.session.commit()
-            return render_template('voters_list.html', all_voters=all_voters)
-        return f"voter with id = {id} does not exist"
+            return redirect(url_for('voters_list'))
+        return f"Voters with id = {id} Does not exist"
     else:
         return render_template('update_voters.html', form=form, id=id)
     
-
 @app.route('/delete_voters/<int:id>', methods=['GET', 'POST'])
 def delete_voters(id):
     voters = Voters.query.filter_by(id=id).first()

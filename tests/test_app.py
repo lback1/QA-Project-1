@@ -20,3 +20,8 @@ class TestBase(TestCase):
         db.session.add(player1)
         db.session.add(voter1)
         db.session.commit()
+
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
