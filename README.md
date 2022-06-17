@@ -1,12 +1,12 @@
-#Hammer of the Year
+# Hammer of the Year
 
-##Creator: Luke Back
+## Creator: Luke Back
 
-###Objective
+### Objective
 
 To create a CRUD application with utilisation of supporting tools, methodologies and technologies that encapsulate all core modules covered during training.  
 
-###Project
+### Project
 
 Functioning web application where West Ham fans can vote for their Hammer of the year (player of the season) and register their name and reason as a voter.
 The functionality of this application will include the following:  
@@ -27,7 +27,7 @@ The functionality of this application will include the following:
 -	Remove Players
 -	Remove Voters
 
-###The requirements to create the specified project will include the following:
+### The requirements to create the specified project will include the following:
 
 •	Kanban Board: Jira
 •	Database: GCP SQL Server
@@ -39,23 +39,23 @@ The functionality of this application will include the following:
 •	CI Server: Jenkins
 •	Cloud server: GCP Compute Engine
 
-###Planning, Designing and Tracking
+### Planning, Designing and Tracking
 
-###Jira
+### Jira
 For planning I used a Kanban board on Jira to help me keep on top of what tasks needed to be completed, what was currently in progress and what had been completed.   
 I also added user stories to the board to plan what needed to be achieved.  
 ![Jira Tasks](https://user-images.githubusercontent.com/100779613/174315665-23e4b575-39b3-4325-8fce-9aa8bd9a8165.png)
 
-###ERD
+### ERD
 The Entity Relationship Diagram helped me visualise the data between tables and they relationship they share.  
 This made structuring my database easier by following the ERD and to create this I used drawio.  
 ![ERD](https://user-images.githubusercontent.com/100779613/174315780-054822fd-3bcc-48dd-aeea-7118a06e1660.png)
 
-###Risk Assessment
+### Risk Assessment
 The risk assessment was created to evaluate any known threats to the project and what measures could be taken to prevent these from occurring.  
 ![Risk Assessment](https://user-images.githubusercontent.com/100779613/174315844-f69382d1-f3a5-4118-9dc1-ce4105fb6c5c.png)
 
-###Front End
+### Front End
 For the front end of my application I used html for the design and functionality.  
 Once started you arrive at the home page and can navigate to different parts of the website.  
 ![Front End - Home](https://user-images.githubusercontent.com/100779613/174316121-2eebb110-3145-4341-a3e7-8940303426ba.png)
@@ -72,22 +72,22 @@ Here you can update existing players.
 Here you can update existing voters.  
 ![Front End - Update Voter](https://user-images.githubusercontent.com/100779613/174316498-4779d129-847b-4949-be10-594472f0c845.png)
 
-###Testing
+### Testing
 I carried out several unit tests using pytest to assess the apps CRUD functionality. For the tests carried out I achieved 100% coverage.  
 ![testing](https://user-images.githubusercontent.com/100779613/174316660-dd289068-8f46-48bf-a67d-3cb6a0c8510a.png)
 
-###Issues encountered
+### Issues encountered
 I originally started the project with a more complex idea in voting for a player, team & manager of the season.  
 This became far too complicated for my current skillset and knowledge, so I decided to start again with a more simple idea.  
 Time and knowledge contraints were a big obstacle as I was constantly referring to resources to ensure the work being completed was correct.  
 Using GCP for virtual machines was a challenge in itself as I was regularly disconnecting from the server and also struggled to create new instances.  
 
-###Future improvements
+### Future improvements
 I will revisit the application to add greater functionality with more entities and improve the design.  
 Due to the difficulties I experienced I didnt manage to use Jenkins. I have no experience even learning this so far, so I will need to catch up on it.  
 
-###Contributors:
+### Contributors:
 Luke Back  
 
-###Acknowledgements:
+### Acknowledgements:
 QA, Earl-Leon-Adam, Resources  
