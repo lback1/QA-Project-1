@@ -11,33 +11,34 @@ To create a CRUD application with utilisation of supporting tools, methodologies
 Functioning web application where West Ham fans can vote for their Hammer of the year (player of the season) and register their name and reason as a voter.
 The functionality of this application will include the following:  
 
-•	Create
+#### Create
 -	Add Players
 -	Add Voters
 
-•	Read
+#### Read
 -	View Players
 -	View Voters
 
-•	Update
+#### Update
 -	Edit Players
 -	Edit Voters
 
-•	Delete
+#### Delete
 -	Remove Players
 -	Remove Voters
 
 ### The requirements to create the specified project will include the following:
 
-•	Kanban Board: Jira
-•	Database: GCP SQL Server
-•	Programming language: Python
-•	Unit Testing with Python (Pytest)
-•	Integration Testing with Python (Selenium)
-•	Front-end: Flask (HTML)
-•	Version Control: Git
-•	CI Server: Jenkins
-•	Cloud server: GCP Compute Engine
+* Kanban Board: Jira
+* Database: GCP SQL Server
+* Programming language: Python
+* Unit Testing with Python (Pytest)
+* Integration Testing with Python (Selenium)
+* Front-end: Flask (HTML)
+* Version Control: Git
+* CI Server: Jenkins
+* Cloud server: GCP Compute Engine
+* IDE: VS Code
 
 ### Planning, Designing and Tracking
 
