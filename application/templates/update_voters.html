@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+<title>Voters</title>
+{% endblock %}
+
+{% block content %}
+<body>
+    <h1>Update a Voter</h1>
+    <p>
+        <div class='form'>
+             <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.voters_name.label }} {{ form.voters_name }}
+                <br>
+                {{ form.reason.label }} {{ form.reason }}
+                <br>
+                {{ form.players_id.label }} {{ form.players_id }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
+{% endblock %}

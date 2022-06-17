@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+<title>Players List</title>
+{% endblock %}
+
+{% block content %}
+<h2> view added players </h2>
+{% for players in all_players %}
+    <br>{{players.id}}
+    <br>{{players.players_name}}
+    <br>{{players.position}}
+    <br>{{players.shirt_number}} 
+    <br><a href="{{ url_for('update_players', id = players.id) }}"><button type="button">Update</button></a><a href="{{ url_for('delete_players', id = players.id) }}"><button type="button">Delete</button></a> </p><br>
+{% endfor %}
+{% endblock %}
