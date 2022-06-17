@@ -1,4 +1,3 @@
-from email import message
 from application import app, db
 from flask import render_template, redirect, url_for, request
 from application.forms import PlayersForm, VotersForm
@@ -71,7 +70,7 @@ def voters_list():
 def update_voters(id):
     form = VotersForm()
     if request.method == 'POST':
-        update_voterss = Voters.query.filter_by(id=id).first()
+        update_voters = Voters.query.filter_by(id=id).first()
         if update_voters: 
             update_voters.voters_name = request.form['voters_name']
             update_voters.reason = request.form['reason']

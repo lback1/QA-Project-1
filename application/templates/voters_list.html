@@ -7,6 +7,10 @@
 {% block content %}
 <h2> view added voters </h2>
 {% for voters in all_voters %}
-    {{voters.id}} {{voters.voters_name}} {{voters.reason}} {{voters.players_id}} <a href="{{ url_for('update_voters', id = voters.id) }}"><button type="button">Update</button></a><a href="{{ url_for('delete_voters', id = voters.id) }}"><button type="button">Delete</button></a> </p><br>
+    <br>{{voters.id}}
+    <br>{{voters.voters_name}}
+    <br>{{voters.reason}}
+    <br>{{voters.players_id}} 
+    <br><a href="{{ url_for('update_voters', id = voters.id) }}"><button type="button">Update</button></a><a href="{{ url_for('delete_voters', id = voters.id) }}"><button type="button">Delete</button></a> </p><br>
 {% endfor %}
 {% endblock %}

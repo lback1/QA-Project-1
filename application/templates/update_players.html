@@ -5,8 +5,22 @@
 {% endblock %}
 
 {% block content %}
-<h2> Current players </h2>
-{% for players in all_players %}.
-    {{players.players_name}} <a href="{{ url_for('update_players', players_name = players.players_name) }}"><button type="button">edit</button></a></p><br>
-{% endfor %}
+<body>
+    <h1>Update a Player</h1>
+    <p>
+        <div class='form'>
+             <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.players_name.label }} {{ form.players_name }}
+                <br>
+                {{ form.position.label }} {{ form.position }}
+                <br>
+                {{ form.shirt_number.label }} {{ form.shirt_number }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
 {% endblock %}
